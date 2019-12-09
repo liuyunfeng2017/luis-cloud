@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cloud.luis</groupId>
+	<artifactId>luis-cloud-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<springboot.version>2.1.10.RELEASE</springboot.version>
+		<springcloud.version>Greenwich.SR4</springcloud.version>
+		<spring-platform.version>Cairo-SR8</spring-platform.version>
+		<springcloud.alibaba.version>2.1.0.RELEASE</springcloud.alibaba.version>
+		<springboot.jasypt.version>2.1.0</springboot.jasypt.version>
+		<springboot.swagger.version>1.8.0.RELEASE</springboot.swagger.version>
+		<springboot.mybatis.version>1.3.2</springboot.mybatis.version>
+		<security.oauth.version>2.3.6.RELEASE</security.oauth.version>
+		<hutool.version>5.0.7</hutool.version>
+		<swagger.version>2.9.2</swagger.version>
+		<swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+		<docker.build-images-url>http://192.168.0.11:2375</docker.build-images-url>
+		<docker.plugin.version>1.0.1</docker.plugin.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<modules>
+
+		<!-- <module>luis-cloud-oauth</module> -->
+		<module>luis-cloud-common</module>
+		<module>luis-cloud-gateway</module>
+		<module>luis-cloud-security</module>
+		<module>luis-cloud-user</module>
+		<module>luis-cloud-config</module>
+		<!-- <module>luis-cloud-boot</module> -->
+	</modules>
+
+	<!-- 管理依赖 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- spring Boot 依赖 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${springboot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- spring Cloud 依赖 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${springcloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- spring Cloud Alibaba依赖 -->
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${springcloud.alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.spring.platform</groupId>
+				<artifactId>platform-bom</artifactId>
+				<version>${spring-platform.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>3.3.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<finalName>${project.name}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<target>${maven.compiler.target}</target>
+					<source>${maven.compiler.source}</source>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${springboot.version}</version>
+				<configuration>
+					<finalName>${project.build.finalName}</finalName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

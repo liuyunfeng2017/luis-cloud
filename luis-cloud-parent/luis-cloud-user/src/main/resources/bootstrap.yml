@@ -1,0 +1,22 @@
+server:
+  port: 8081
+  
+jasypt:
+  encryptor:
+    password: bl123456
+  
+spring:
+  application:
+    name: luis-cloud-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.3.207:8848
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+  profiles:
+    active: ${config.profile:dev}
+   
+    
+      
