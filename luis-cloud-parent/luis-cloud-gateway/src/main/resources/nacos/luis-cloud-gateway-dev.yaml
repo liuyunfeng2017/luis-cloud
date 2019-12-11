@@ -1,0 +1,14 @@
+spring:
+  cloud:      
+    gateway: 
+      enabled: true 
+      discovery:
+        locator:
+          lower-case-service-id: true
+      routes:  
+        - id: luis_user
+          predicates:
+            - Path=/user/**
+          uri: lb://luis-cloud-user
+          filters:
+            - StripPrefix=1

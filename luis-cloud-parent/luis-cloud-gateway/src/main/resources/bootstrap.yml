@@ -9,6 +9,23 @@ spring:
         server-addr: 192.168.3.207:8848
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
-        file-extension: yml
+        file-extension: yaml
+        
+    gateway: 
+      enabled: true 
+      discovery:
+        locator:
+          lower-case-service-id: true
+      routes:  
+        - id: luis_user
+          predicates:
+            - Path=/user/**
+          uri: lb://luis-cloud-user
+          filters:
+            - StripPrefix=1
   profiles:
     active: ${config.profile:dev}
+
+
+     
+    
