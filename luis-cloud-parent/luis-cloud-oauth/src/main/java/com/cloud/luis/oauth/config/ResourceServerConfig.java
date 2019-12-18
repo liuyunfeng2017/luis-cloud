@@ -13,7 +13,11 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 import com.cloud.luis.oauth.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.cloud.luis.oauth.mobile.ValidateCodeSecurityConfig;
 import com.cloud.luis.oauth.openid.OpenIdAuthenticationSecurityConfig;
-
+/**
+ * 资源服务器配置类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -27,7 +31,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Autowired
 	OpenIdAuthenticationSecurityConfig openIdAuthenticationSecurityConfig;
 	
-	private static final String[] excludedAuthPages = { "/oauth/token", "/health", "/api/socket/**" };
+	private static final String[] EXCLUDE_AUTH_PAGES = { "/oauth/token", "/health", "/api/socket/**" };
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
@@ -44,7 +48,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.and()
 				.csrf()
 				.disable();
-		registry.antMatchers(excludedAuthPages).permitAll();
+		registry.antMatchers(EXCLUDE_AUTH_PAGES).permitAll();
 	}
 	
 	@Bean

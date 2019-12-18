@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cloud.luis.common.model.ReturnData;
 import com.cloud.luis.oauth.mobile.SmsValidateCodeHelper;
 
+/**
+ * 用户信息Controller
+ * @author luis
+ * @date 2019/12/18
+ */
 @RestController
 @RequestMapping("/oauth")
 public class SecurityController {

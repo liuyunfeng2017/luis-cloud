@@ -5,7 +5,11 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-
+/**
+ * openId今牌处理类
+ * @author luis
+ * @date 2019/12/18
+ */
 public class OpenIdAuthenticationToken extends AbstractAuthenticationToken {
 
     

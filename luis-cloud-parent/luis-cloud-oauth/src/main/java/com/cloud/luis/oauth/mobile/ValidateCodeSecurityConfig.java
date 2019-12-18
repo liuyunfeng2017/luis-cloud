@@ -9,6 +9,11 @@ import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
 import org.springframework.stereotype.Component;
 
+/**
+ * 验证码过滤器配置类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Component("validateCodeSecurityConfig")
 public class ValidateCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 

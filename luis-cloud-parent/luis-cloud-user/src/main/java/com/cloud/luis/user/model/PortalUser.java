@@ -8,10 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
- * <p>
- * 用户表
- * </p>
- *
+ * 用户实体类
  * @author luis
  * @since 2019-12-06
  */

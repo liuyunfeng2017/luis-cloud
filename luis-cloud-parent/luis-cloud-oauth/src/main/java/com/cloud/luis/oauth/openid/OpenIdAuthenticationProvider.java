@@ -7,7 +7,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-
+/**
+ * openId登陆自定义处理类
+ * @author luis
+ * @date 2019/12/18
+ */
 public class OpenIdAuthenticationProvider implements AuthenticationProvider {
 
     UserDetailsService userDetailsService;

@@ -13,6 +13,11 @@ import org.springframework.stereotype.Component;
 import com.cloud.luis.common.model.ReturnData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 自定义登陆失败处理器
+ * @author luis
+ * @date 2019/12/18
+ */
 @Component("appLoginFailureHandler")
 public class AppLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 

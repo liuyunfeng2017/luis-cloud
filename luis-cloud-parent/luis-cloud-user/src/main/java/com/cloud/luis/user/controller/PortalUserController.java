@@ -14,10 +14,7 @@ import com.cloud.luis.user.model.PortalUser;
 import com.cloud.luis.user.service.PortalUserService;
 
 /**
- * <p>
- * 用户表 前端控制器
- * </p>
- *
+ * 用户controller
  * @author luis
  * @since 2019-12-06
  */

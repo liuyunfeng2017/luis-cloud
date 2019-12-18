@@ -4,10 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cloud.luis.user.model.PortalUser;
 
 /**
- * <p>
- * 用户表 Mapper 接口
- * </p>
- *
+ * 用户Mapper层
  * @author luis
  * @since 2019-12-06
  */

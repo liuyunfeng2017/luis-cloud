@@ -3,6 +3,11 @@ package com.cloud.luis.oauth.mobile;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * 验证码实体类
+ * @author luis
+ * @date 2019/12/18
+ */
 public class ValidateCode implements Serializable {
     
     /** @Fields serialVersionUID: */

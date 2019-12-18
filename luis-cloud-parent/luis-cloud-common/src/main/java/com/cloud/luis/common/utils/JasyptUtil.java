@@ -2,6 +2,11 @@ package com.cloud.luis.common.utils;
 
 import org.jasypt.util.text.BasicTextEncryptor;
 
+/**
+ * Jasypt加解密示例
+ * @author luis
+ * @date 2019/12/18
+ */
 public class JasyptUtil {
 	
 	public static void main(String[] args) {

@@ -13,6 +13,11 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
+/**
+ * 代码自动生成工具
+ * @author luis
+ * @date 2019/12/18
+ */
 public class CodeGenerator {
 	
 	/**

@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * openId登陆拦截器
+ * @author luis
+ * @date 2019/12/18
+ */
 public class OpenIdAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
     protected OpenIdAuthenticationFilter() {
@@ -18,7 +23,7 @@ public class OpenIdAuthenticationFilter extends AbstractAuthenticationProcessing
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws AuthenticationException, IOException, ServletException {
-        if(!httpServletRequest.getMethod().equals("POST")){
+        if(!"POST".equals(httpServletRequest.getMethod())){
             throw new AuthenticationServiceException("Authentication method not supported:"+httpServletRequest.getMethod());
         }
         String openid = obtainOpenId(httpServletRequest);

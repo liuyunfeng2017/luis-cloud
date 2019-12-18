@@ -6,12 +6,20 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import com.alibaba.fastjson.parser.ParserConfig;
 
+import lombok.extern.slf4j.Slf4j;
+/**
+ * redis统一配置类
+ * @author luis
+ * @date 2019/12/18
+ */
+@Slf4j
 @Configuration
 public class RedisConfiguration {
 
     
     @Bean
-    public RedisTemplate<String, Object> redisTemplate2(RedisConnectionFactory redisConnectionFactory) {
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    	log.debug("RedisConfiguration redisTemplate init ... ...");
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         FastJson2JsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJson2JsonRedisSerializer<>(Object.class);

@@ -12,6 +12,11 @@ import com.cloud.luis.common.exception.CustomException;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 验证码生成及校验工具类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Slf4j
 @Component
 public class SmsValidateCodeHelper {

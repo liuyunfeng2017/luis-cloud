@@ -15,6 +15,11 @@ import com.cloud.luis.oauth.model.SecurityUserDetail;
 
 import cn.hutool.core.util.StrUtil;
 
+/**
+ * 自定义用户认证实现类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 	

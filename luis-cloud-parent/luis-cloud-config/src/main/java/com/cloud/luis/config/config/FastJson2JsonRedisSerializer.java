@@ -6,6 +6,11 @@ import org.springframework.data.redis.serializer.SerializationException;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
+/**
+ * FastJson序列化工具类，用于redis序列化存储
+ * @author luis
+ * @date 2019/12/18
+ */
 public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T> {
     
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");

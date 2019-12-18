@@ -5,6 +5,11 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
+/**
+ * 自定义验证码登陆今牌处理
+ * @author luis
+ * @date 2019/12/18
+ */
 public class SmsCodeAuthenticationToken extends AbstractAuthenticationToken {
 
     

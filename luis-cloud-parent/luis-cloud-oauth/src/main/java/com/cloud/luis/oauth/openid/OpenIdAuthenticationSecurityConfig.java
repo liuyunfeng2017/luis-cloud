@@ -9,6 +9,11 @@ import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
+/**
+ * openId登陆配置类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Component
 public class OpenIdAuthenticationSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 	
@@ -23,12 +28,11 @@ public class OpenIdAuthenticationSecurityConfig extends SecurityConfigurerAdapte
      */
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        OpenIdAuthenticationFilter OpenIdAuthenticationFilter = new OpenIdAuthenticationFilter();
-        OpenIdAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        OpenIdAuthenticationProvider OpenIdAuthenticationProvider = new OpenIdAuthenticationProvider();
-        OpenIdAuthenticationProvider.setUserDetailsService(userDetailsService);
-        http.authenticationProvider(OpenIdAuthenticationProvider)
-            .addFilterAfter(OpenIdAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        OpenIdAuthenticationFilter openIdAuthenticationFilter = new OpenIdAuthenticationFilter();
+        openIdAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
+        OpenIdAuthenticationProvider openIdAuthenticationProvider = new OpenIdAuthenticationProvider();
+        openIdAuthenticationProvider.setUserDetailsService(userDetailsService);
+        http.authenticationProvider(openIdAuthenticationProvider).addFilterAfter(openIdAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
     }
 }

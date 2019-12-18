@@ -10,6 +10,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 验证码登陆拦截器
+ * @author luis
+ * @date 2019/12/18
+ */
 public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 	
     private String mobileParameter = "mobile";
@@ -20,7 +25,7 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        if (!request.getMethod().equals("POST")) {
+        if (!"POST".equals(request.getMethod())) {
             throw new AuthenticationServiceException("Authentication method not supported: " + request.getMethod());
         } else {
             String mobile = this.obtainMobile(request);

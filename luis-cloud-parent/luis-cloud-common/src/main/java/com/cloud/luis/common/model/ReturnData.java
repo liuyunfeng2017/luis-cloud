@@ -3,9 +3,9 @@ package com.cloud.luis.common.model;
 import lombok.Data;
 
 /**
- * 
- * @author lyf
- *
+ *  统一返回数据结构对象
+ * @author luis
+ * @date 2019/12/18
  */
 
 @Data

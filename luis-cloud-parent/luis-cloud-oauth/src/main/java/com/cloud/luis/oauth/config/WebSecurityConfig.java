@@ -7,11 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-
 /**
- * @author lyf
- *
+ * security安全认证配置类
+ * @author luis
+ * @date 2019/12/18
  */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

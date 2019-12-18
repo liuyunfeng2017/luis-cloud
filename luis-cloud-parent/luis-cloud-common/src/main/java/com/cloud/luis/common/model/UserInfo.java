@@ -6,12 +6,15 @@ import java.util.Collection;
 
 import lombok.Data;
 
+/**
+ *     用户信息对象类
+ * @author luis
+ * @date 2019/12/18
+ */
 @Data
 public class UserInfo implements Serializable{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 5757964393548163491L;
 	
 	private Long userId;

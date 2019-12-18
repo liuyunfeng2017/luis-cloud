@@ -25,6 +25,11 @@ spring:
             - StripPrefix=1
   profiles:
     active: ${config.profile:dev}
+    
+logging: 
+  config: classpath:logback-spring.xml 
+
+    
 
 
      

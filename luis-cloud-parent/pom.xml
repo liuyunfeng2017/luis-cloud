@@ -27,13 +27,13 @@
 
 	<modules>
 
-		<!-- <module>luis-cloud-oauth</module> -->
+		<module>luis-cloud-oauth</module>
 		<module>luis-cloud-common</module>
 		<module>luis-cloud-gateway</module>
-		<module>luis-cloud-security</module>
+		<!-- <module>luis-cloud-security</module> -->
 		<module>luis-cloud-user</module>
 		<module>luis-cloud-config</module>
-		<!-- <module>luis-cloud-boot</module> -->
+		<module>luis-cloud-boot</module>
 	</modules>
 
 	<!-- 管理依赖 -->

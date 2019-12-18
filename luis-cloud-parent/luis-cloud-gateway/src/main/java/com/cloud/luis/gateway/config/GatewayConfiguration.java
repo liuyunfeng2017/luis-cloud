@@ -1,10 +1,10 @@
+/**
 package com.cloud.luis.gateway.config;
 
 import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -12,7 +12,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.codec.ServerCodecConfigurer;
 import org.springframework.web.reactive.result.view.ViewResolver;
 
-import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
 import com.alibaba.csp.sentinel.adapter.gateway.sc.exception.SentinelGatewayBlockExceptionHandler;
 
 @Configuration
@@ -36,3 +35,4 @@ public class GatewayConfiguration {
 
 
 }
+*/

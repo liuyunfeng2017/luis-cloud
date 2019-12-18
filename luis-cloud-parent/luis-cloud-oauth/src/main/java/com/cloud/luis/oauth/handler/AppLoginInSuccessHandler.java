@@ -1,7 +1,6 @@
 package com.cloud.luis.oauth.handler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
@@ -23,6 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * 自定义登陆成功处理器
+ * @author luis
+ * @date 2019/12/18
+ */
 @Slf4j
 @Component("appLoginInSuccessHandler")
 public class AppLoginInSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {

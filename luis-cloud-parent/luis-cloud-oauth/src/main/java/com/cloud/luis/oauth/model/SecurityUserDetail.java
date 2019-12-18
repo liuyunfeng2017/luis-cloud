@@ -7,9 +7,15 @@ import org.springframework.security.core.userdetails.User;
 
 import lombok.Getter;
 
+/**
+ * 自定义用户实体类
+ * @author luis
+ * @date 2019/12/18
+ */
 public class SecurityUserDetail extends User {
 
 	  private static final long serialVersionUID = -5264301204847053336L;
+
 	  /**
 	   * 用户ID
 	   */

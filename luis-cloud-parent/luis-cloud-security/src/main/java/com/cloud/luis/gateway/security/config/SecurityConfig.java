@@ -22,11 +22,11 @@ public class SecurityConfig {
 	private CustomHttpBasicServerAuthenticationEntryPoint customHttpBasicServerAuthenticationEntryPoint;
 
 	// security的鉴权排除列表
-	private static final String[] excludedAuthPages = { "/auth/login", "/auth/logout", "/health", "/api/socket/**" };
+	private static final String[] EXCLUDE_AUTH_PAGES = { "/auth/login", "/auth/logout", "/health", "/api/socket/**" };
 
 	@Bean
 	SecurityWebFilterChain webFluxSecurityFilterChain(ServerHttpSecurity http) throws Exception {
-		http.authorizeExchange().pathMatchers(excludedAuthPages).permitAll() // 无需进行权限过滤的请求路径
+		http.authorizeExchange().pathMatchers(EXCLUDE_AUTH_PAGES).permitAll() // 无需进行权限过滤的请求路径
 				.pathMatchers(HttpMethod.OPTIONS).permitAll() // option 请求默认放行
 				.anyExchange().authenticated().and().httpBasic().and().formLogin().loginPage("/auth/login")
 				.authenticationSuccessHandler(authenticationSuccessHandler) // 认证成功

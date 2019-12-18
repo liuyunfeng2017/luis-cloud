@@ -22,12 +22,10 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
-
-
 /**
- * 
- * @author lyf
- *
+ * 认证服务器配置类
+ * @author luis
+ * @date 2019/12/18
  */
 @Configuration
 @EnableAuthorizationServer

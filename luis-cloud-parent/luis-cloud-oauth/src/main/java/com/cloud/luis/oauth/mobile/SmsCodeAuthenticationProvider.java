@@ -7,6 +7,11 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+/**
+ * 验证码登陆服务器
+ * @author luis
+ * @date 2019/12/18
+ */
 public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
 
     UserDetailsService userDetailsService;
