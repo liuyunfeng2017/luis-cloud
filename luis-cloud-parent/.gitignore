@@ -1,0 +1,41 @@
+
+# Build Artifacts
+ 
+.gradle/
+build/
+target/
+bin/
+logs/
+
+ 
+# Java class files
+*.class
+*.jar
+*.war
+*.log
+*.factorypath
+ 
+
+# Eclipse Project Files
+ 
+.classpath
+.project
+.settings/
+.factorypath
+
+
+# IntelliJ IDEA Files
+ 
+*.iml
+*.ipr
+*.iws
+*.idea
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.class
