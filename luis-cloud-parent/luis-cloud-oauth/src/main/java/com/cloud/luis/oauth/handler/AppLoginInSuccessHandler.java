@@ -74,14 +74,14 @@ public class AppLoginInSuccessHandler extends SavedRequestAwareAuthenticationSuc
         OAuth2Authentication oAuth2Authentication = new OAuth2Authentication(oAuth2Request, authentication);
 
         OAuth2AccessToken token = authorizationServerTokenServices.createAccessToken(oAuth2Authentication);
-
+        log.debug("------------================={}=================---------------", token);   
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(objectMapper.writeValueAsString(token));
 
     }
 
     /**
-     * 解码
+                 * 解码
      *
      * @param header
      * @param request

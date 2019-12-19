@@ -18,6 +18,8 @@ spring:
   profiles:
     active: ${config.profile:dev}
     
+logging: 
+  config: classpath:logback-spring.xml     
     
 
    

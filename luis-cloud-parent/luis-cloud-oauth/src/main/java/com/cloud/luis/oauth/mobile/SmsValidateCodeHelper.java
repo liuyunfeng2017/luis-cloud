@@ -1,10 +1,12 @@
 package com.cloud.luis.oauth.mobile;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class SmsValidateCodeHelper {
     
-    @Autowired
+    @Resource
     private RedisTemplate<Object,Object> redisTemplate;
     
     public void send(HttpServletRequest request) {
@@ -62,7 +64,8 @@ public class SmsValidateCodeHelper {
         if (codeInRedis == null) {
             throw new CustomException("验证码不存在");
         }
-        if (codeInRedis.isExpried()) {
+        boolean flag = LocalDateTime.now().isAfter(codeInRedis.getExpireTime());
+        if (flag) {
             remove(request);
             throw new CustomException("验证码已过期");
         }

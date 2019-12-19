@@ -1,13 +1,13 @@
 package com.cloud.luis.oauth.config;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,8 +19,14 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import com.cloud.luis.common.properties.CustomConstants;
+import com.cloud.luis.oauth.supper.CustomerAccessTokenConverter;
+
 
 /**
  * 认证服务器配置类
@@ -34,18 +40,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
     private AuthenticationManager authenticationManager;
     
-    @Autowired
-    private RedisConnectionFactory redisConnectionFactory;
-	
 	@Autowired
 	private UserDetailsService userDetailsService;
-    
-
+	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.allowFormAuthenticationForClients()
 			.tokenKeyAccess("isAuthenticated()")
-			.checkTokenAccess("isAuthenticated()");
+			.checkTokenAccess("permitAll()");
 	}
 
 	@Override
@@ -60,23 +62,48 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+	    TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer(), jwtAccessTokenConverter()));
         endpoints.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
-			.tokenStore(tokenStore())
-			.tokenEnhancer(tokenEnhancer())
+            .tokenEnhancer(tokenEnhancerChain)
+            .authenticationManager(authenticationManager)
+			.tokenStore(jwtTokenStore())
+			.accessTokenConverter(jwtAccessTokenConverter())
 			.userDetailsService(userDetailsService)
-			.authenticationManager(authenticationManager)
 			.reuseRefreshTokens(true);
 	}
 	
 	/**
-	 * Token store.
-	 */
+	 * redis Token store.
+	 * @return TokenStore
+	 
 	@Bean
-	public TokenStore tokenStore() {
+	public TokenStore rredisTokenStore() {
 		RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
 		return tokenStore;
 	}
+	*/
+	/**
+	 * jwt Token Store
+	 * @return TokenStore
+	 */
+	@Bean
+    public TokenStore jwtTokenStore() {
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
+
+    @Bean
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
+        JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
+        accessTokenConverter.setSigningKey(CustomConstants.JWT_SIGNING_KEY);//配置JWT使用的秘钥
+        accessTokenConverter.setAccessTokenConverter(new CustomerAccessTokenConverter()); //令牌内容增强
+        return accessTokenConverter;
+    }
     
+    /**
+                 *  返回报文增强
+     * @return
+     */
     @Bean
     public TokenEnhancer tokenEnhancer() {
         return (accessToken, authentication) -> {

@@ -9,6 +9,10 @@ import org.jasypt.util.text.BasicTextEncryptor;
  */
 public class JasyptUtil {
 	
+    /**
+     * 
+     * @param args
+     
 	public static void main(String[] args) {
 		BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
         //加密所需的salt(盐)
@@ -19,5 +23,5 @@ public class JasyptUtil {
         System.out.println("username:"+username);
         System.out.println("password:"+password);
 	}
-
+*/
 }

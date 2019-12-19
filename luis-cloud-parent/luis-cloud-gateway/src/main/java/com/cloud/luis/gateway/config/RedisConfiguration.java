@@ -1,4 +1,4 @@
-package com.cloud.luis.config.config;
+package com.cloud.luis.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,13 +11,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.extern.slf4j.Slf4j;
 /**
  * redis统一配置类
  * @author luis
  * @date 2019/12/18
  */
-@Slf4j
 @Configuration
 public class RedisConfiguration {
 

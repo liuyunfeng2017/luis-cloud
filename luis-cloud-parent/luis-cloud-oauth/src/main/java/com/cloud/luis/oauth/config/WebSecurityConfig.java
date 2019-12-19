@@ -1,6 +1,5 @@
 package com.cloud.luis.oauth.config;
 
-import lombok.SneakyThrows;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,19 +13,28 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+    
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/oauth/token").permitAll().and().csrf().disable();
+        http.csrf()
+            .disable()
+            .authorizeRequests()
+            .antMatchers("/oauth/**", "/login/**", "/logout/**")
+            .permitAll()
+            .anyRequest()
+            .authenticated()
+            .and()
+            .formLogin()
+            .permitAll();
 	}
 	
 
-	@Bean
-	@Override
-	@SneakyThrows
-	public AuthenticationManager authenticationManagerBean() {
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
 
 	

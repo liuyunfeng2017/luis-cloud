@@ -23,5 +23,13 @@ public class UserInfo implements Serializable{
     private Collection<Long> roles;
     private Collection<String> permissions;
     private String token;
+    
+    @Override
+    public String toString() {
+        return "UserInfo [userId=" + userId + ", username=" + username + ", imageUrl=" + imageUrl + ", roles=" + roles
+            + ", permissions=" + permissions + ", token=" + token + "]";
+    }
+    
+    
 
 }

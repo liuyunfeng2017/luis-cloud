@@ -31,12 +31,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
-		<!--springboot2.X默认使用lettuce连接池，需要引入commons-pool2 -->
+		<!-- jwt 工具包 -->
 		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-pool2</artifactId>
+		    <groupId>com.auth0</groupId>
+		    <artifactId>java-jwt</artifactId>
+		    <version>3.8.3</version>
 		</dependency>
 <!-- 
 		<dependency>
@@ -52,9 +54,19 @@
 			<artifactId>sentinel-transport-simple-http</artifactId>
 		</dependency> -->
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+		</dependency>
+		<!--springboot2.X默认使用lettuce连接池，需要引入commons-pool2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.cloud.luis</groupId>
 			<artifactId>luis-cloud-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
 	</dependencies>
 </project>

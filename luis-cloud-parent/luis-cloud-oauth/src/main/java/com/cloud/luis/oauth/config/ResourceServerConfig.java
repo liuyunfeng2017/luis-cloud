@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.cloud.luis.oauth.mobile.SmsCodeAuthenticationSecurityConfig;
 import com.cloud.luis.oauth.mobile.ValidateCodeSecurityConfig;
@@ -21,6 +23,12 @@ import com.cloud.luis.oauth.openid.OpenIdAuthenticationSecurityConfig;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+    
+    @Autowired
+    private AuthenticationSuccessHandler appLoginInSuccessHandler;
+
+    @Autowired
+    private AuthenticationFailureHandler appLoginFailureHandler;
   
 	@Autowired
 	private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
@@ -37,6 +45,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.authorizeRequests();
 		registry.and().formLogin()
+        		.successHandler(appLoginInSuccessHandler)
+                .failureHandler(appLoginFailureHandler)
 				.and()
 				.headers().frameOptions().disable().and().exceptionHandling()
 				.and()
