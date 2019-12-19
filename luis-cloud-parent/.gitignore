@@ -6,6 +6,7 @@ build/
 target/
 bin/
 logs/
+classes/
 
  
 # Java class files

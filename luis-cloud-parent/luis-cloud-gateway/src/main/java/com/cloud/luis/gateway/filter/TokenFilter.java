@@ -18,7 +18,6 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.JWTVerifier;
-import com.cloud.luis.common.model.UserInfo;
 import com.cloud.luis.common.properties.CustomConstants;
 import com.cloud.luis.common.utils.PermitAllUrl;
 import com.cloud.luis.gateway.properties.CustomProperties;
@@ -83,7 +82,6 @@ public class TokenFilter implements GlobalFilter, Ordered {
 		
 		//校验用户信息是否在redis中，补足jwt token无法强制下线
 		Long userId = JWT.decode(accessToken).getClaim("userId").asLong();
-		log.debug("------------------------------------------userId {}", userId);
 		boolean hasKey = redisTemplate.hasKey(CustomConstants.REDIS_USER_KEY + userId);
 		
 		if(!hasKey) {

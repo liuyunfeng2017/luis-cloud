@@ -1,8 +1,8 @@
-/**
 package com.cloud.luis.gateway.config;
 
 import java.util.Collections;
 import java.util.List;
+
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
@@ -33,6 +33,4 @@ public class GatewayConfiguration {
     }
     
 
-
 }
-*/
