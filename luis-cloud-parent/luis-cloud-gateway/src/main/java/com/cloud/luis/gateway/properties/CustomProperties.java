@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.Data;
 
+/**
+ * 通用可配类
+ * @author luis
+ * @date 2019/12/20
+ */
 @Data
 @Configuration()
 @ConfigurationProperties(prefix = "custom.exclude.urls")

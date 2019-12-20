@@ -1,5 +1,10 @@
 server:
   port: 8080
+  
+jasypt:
+  encryptor:
+    password: bl123456  
+  
 spring:
   application:
     name: luis-cloud-gateway
@@ -16,13 +21,13 @@ spring:
       discovery:
         locator:
           lower-case-service-id: true
-      routes:  
-        - id: luis_user
-          predicates:
-            - Path=/user/**
-          uri: lb://luis-cloud-user
-          filters:
-            - StripPrefix=1
+#      routes:  
+#        - id: luis_user
+#          predicates:
+#            - Path=/user/**
+#          uri: lb://luis-cloud-user
+#          filters:
+#            - StripPrefix=1
             
     sentinel:
       scg:        fallback:          response-body: '{"code":0,"msg":"sentinel fallback"}'
@@ -32,6 +37,10 @@ spring:
     
 logging: 
   config: classpath:logback-spring.xml 
+  
+  
+  
+#java -jar luis-cloud-gateway.jar -Dcsp.sentinel.app.type=1 -Dcsp.sentinel.dashboard.server=192.168.3.207:8080 -Dproject.name=luis-cloud-gateway
 
     
 

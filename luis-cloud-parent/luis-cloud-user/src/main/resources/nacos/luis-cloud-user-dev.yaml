@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 
 jasypt:
   encryptor:
@@ -8,8 +8,8 @@ jasypt:
 spring:
   datasource:
     url: jdbc:mysql://192.168.4.203:3306/td_portal?useUnicode=true&characterEncoding=utf8&useSSL=false
-    username: root
-    password: poly2017
+    username: ENC(KPClYRBQwOyzNgFjSYbLpg==)
+    password: ENC(5QliJ9EHxLcrDv1BoMW2zAMmadfPdCN2)
     driver-class-name: com.mysql.cj.jdbc.Driver
     
     hikari:
@@ -21,3 +21,4 @@ spring:
       max-lifetime: 1800000 
       connection-timeout: 30000 
       connection-test-query: SELECT 1
+

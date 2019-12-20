@@ -85,7 +85,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
 		boolean hasKey = redisTemplate.hasKey(CustomConstants.REDIS_USER_KEY + userId);
 		
 		if(!hasKey) {
-		    exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
+		    exchange.getResponse().setStatusCode(HttpStatus.UNPROCESSABLE_ENTITY);
             return exchange.getResponse().setComplete();
 		}
 		

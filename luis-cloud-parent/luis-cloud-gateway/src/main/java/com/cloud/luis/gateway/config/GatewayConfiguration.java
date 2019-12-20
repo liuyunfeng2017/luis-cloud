@@ -14,6 +14,11 @@ import org.springframework.web.reactive.result.view.ViewResolver;
 
 import com.alibaba.csp.sentinel.adapter.gateway.sc.exception.SentinelGatewayBlockExceptionHandler;
 
+/**
+ * gateway整合Sentinel实现熔断、限流、降级
+ * @author luis
+ * @date 2019/12/20
+ */
 @Configuration
 public class GatewayConfiguration {
 

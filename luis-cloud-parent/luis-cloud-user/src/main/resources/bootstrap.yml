@@ -1,3 +1,4 @@
+
 server:
   port: 8083
   
@@ -19,9 +20,4 @@ spring:
     active: ${config.profile:dev}
     
 logging: 
-  config: classpath:logback-spring.xml     
-    
-
-   
-    
-      
+  config: classpath:logback-spring.xml   

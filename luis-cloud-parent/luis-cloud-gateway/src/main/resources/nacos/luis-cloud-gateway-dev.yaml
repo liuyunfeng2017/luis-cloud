@@ -5,18 +5,11 @@ spring:
       discovery:
         locator:
           lower-case-service-id: true
-      routes:  
-        - id: luis_user
-          predicates:
-            - Path=/user/**
-          uri: lb://luis-cloud-user
-          filters:
-            - StripPrefix=1
 
   redis:
-    host: 120.79.150.108
-    port: 6379
-    password: passwd123
+    host: ENC(qn5/FvkOOxPVjgxgjwOzWfk/RIlfyY2z)
+    port: ENC(HSEupnqpzeqv+0W0FtDjTw==)
+    password: ENC(C1jcqtmX2PnVrAqaf9kfKEFhErLxf5YG)
     database: 10
     lettuce:
       pool:

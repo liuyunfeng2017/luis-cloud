@@ -1,0 +1,17 @@
+[{
+	"filters": [{
+		"args": {
+			"_genkey_0": "1"
+		},
+		"name": "StripPrefix"
+	}],
+	"id": "luis-user",
+	"order": 100,
+	"predicates": [{
+		"args": {
+			"_genkey_0": "/user/**"
+		},
+		"name": "Path"
+	}],
+	"uri": "lb://luis-cloud-user"
+}]

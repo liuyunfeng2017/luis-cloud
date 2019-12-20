@@ -10,9 +10,9 @@ spring:
     name: luis-cloud-oauth
        
   redis:
-    host: 120.79.150.108
-    port: 6379
-    password: passwd123
+    host: ENC(qn5/FvkOOxPVjgxgjwOzWfk/RIlfyY2z)
+    port: ENC(HSEupnqpzeqv+0W0FtDjTw==)
+    password: ENC(C1jcqtmX2PnVrAqaf9kfKEFhErLxf5YG)
     database: 10
     lettuce:
       pool:
