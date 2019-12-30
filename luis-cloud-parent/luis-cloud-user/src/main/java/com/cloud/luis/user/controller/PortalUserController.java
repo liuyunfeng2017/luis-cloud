@@ -13,6 +13,9 @@ import com.cloud.luis.common.model.ReturnData;
 import com.cloud.luis.user.model.PortalUser;
 import com.cloud.luis.user.service.PortalUserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 /**
  * 用户controller
  * @author luis
@@ -20,12 +23,14 @@ import com.cloud.luis.user.service.PortalUserService;
  */
 @RestController
 @RequestMapping("/user")
+@Api("用户信息管理")
 public class PortalUserController {
 	
 	@Autowired
 	PortalUserService portalUserService;
 	
 	@PostMapping("/list")
+	@ApiOperation(value = "查询", notes = "所有用户信息")
 	public ReturnData<List<PortalUser>> getUserList(){
 		List<PortalUser> userList = portalUserService.list();
 		return new ReturnData<List<PortalUser>>(userList);
