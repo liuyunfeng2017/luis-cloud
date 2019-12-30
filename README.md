@@ -8,6 +8,7 @@ springcloud+oauth2.0+security+jwt+redis+nacos+Sentinel
 3、注册中心和配置中心整合nacos
 4、gateway路由动态刷新
 5、gateway通过全局过滤方式认证鉴权
+6、gateway整合swagger文档集合
 
 代码只是一些基本框架，拿来改改就能用，欢迎沟通！
 
