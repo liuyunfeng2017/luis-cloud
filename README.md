@@ -1,7 +1,13 @@
 # luis-cloud
 springcloud Greenwich SR4 整合alibaba毕业版
 undertow替代tomcat
-特别说明：
-从shiro到security再到oauth2.0+security+jwt实践之后发现一般应用工程没必要为了技术而技术，只有适合自己的才是最好的，so，我这里只用了security在gateway
-上做了一层认证和鉴权，在gateway后面的微服务全放到k8s容器内网管理，简单直接。
-先这样吧，当前工程只是本人闲时手痒搭的简单框架，反正也没什么人看。
+springcloud+oauth2.0+security+jwt+redis+nacos+Sentinel
+己实现如下功能：
+1、oauth2.0单点登陆，用jwt替换UUID今牌
+2、gateway整合sentinel实现服务熔断限流降级
+3、注册中心和配置中心整合nacos
+4、gateway路由动态刷新
+5、gateway通过全局过滤方式认证鉴权
+
+代码只是一些基本框架，拿来改改就能用，欢迎沟通！
+
