@@ -13,5 +13,7 @@ import com.cloud.luis.user.model.PortalUser;
 public interface PortalUserService extends IService<PortalUser> {
     
     public List<PortalUser> getUserByParams(PortalUser user);
+    
+    public Long getUserId();
 
 }

@@ -26,7 +26,7 @@ public class ResponseFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return Ordered.HIGHEST_PRECEDENCE + 10;
+        return Ordered.HIGHEST_PRECEDENCE + 100;
     }
 
     @Override

@@ -47,7 +47,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
 	
 	@Override
 	public int getOrder() {
-		return Ordered.LOWEST_PRECEDENCE - 100;
+		return Ordered.LOWEST_PRECEDENCE - 200;
 	}
 
 	@Override
