@@ -2,8 +2,10 @@
 
  public interface CustomConstants {
      
-     String JWT_SIGNING_KEY = "luis@2019"; 
+     public static final String JWT_SIGNING_KEY = "luis@2019"; 
      
-     String REDIS_USER_KEY = "oauth:user:";
+     public static final String REDIS_USER_KEY = "oauth:user:";
+     
+     public static final String CACHE_REQ_BODY_KEY = "CACHE_REQ_BODY_KEY";
 
 }

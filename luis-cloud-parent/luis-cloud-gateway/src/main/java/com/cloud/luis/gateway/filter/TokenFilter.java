@@ -11,6 +11,7 @@ import org.springframework.core.Ordered;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 
@@ -33,6 +34,7 @@ import reactor.core.publisher.Mono;
  * @date 2019/12/18
  */
 @Slf4j
+@Component
 public class TokenFilter implements GlobalFilter, Ordered {
 	
 	@Resource
@@ -45,7 +47,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
 	
 	@Override
 	public int getOrder() {
-		return Ordered.LOWEST_PRECEDENCE;
+		return Ordered.LOWEST_PRECEDENCE - 100;
 	}
 
 	@Override
@@ -78,7 +80,6 @@ public class TokenFilter implements GlobalFilter, Ordered {
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
             return exchange.getResponse().setComplete();
         }
-		
 		
 		//校验用户信息是否在redis中，补足jwt token无法强制下线
 		Long userId = JWT.decode(accessToken).getClaim("userId").asLong();
